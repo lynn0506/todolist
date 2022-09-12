@@ -39,6 +39,7 @@ function SignUp() {
                 <label>
                     비밀번호
                     <input
+                        autoComplete="password"
                         type="password"
                         id="password"
                         name="password"
@@ -50,6 +51,7 @@ function SignUp() {
                 <label>
                     비밀번호 확인
                     <input
+                        autoComplete="passwordCheck"
                         type="password"
                         id="passwordCheck"
                         name="passwordCheck"

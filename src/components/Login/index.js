@@ -33,6 +33,7 @@ function Login() {
                     placeholder="아이디"
                 />
                 <input
+                    autoComplete="password"
                     type="password"
                     id="password"
                     name="password"
