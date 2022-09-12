@@ -14,10 +14,24 @@
     color: #868e96;
     font-size: 21px;
   }
+  .info-bar {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    > * {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
   .todos-left {
     color: #20c997;
-    font-size: 18px;
-    margin-top: 40px;
-    font-weight: bold;
+  }
+  button {
+    outline: none;
+    border: none;
+    background-color: transparent;
   }
 }
