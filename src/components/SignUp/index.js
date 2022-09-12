@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './SignUp.scss';
 
-function SignUp() {
+function SignUp({onClickLoginBtn}) {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -61,7 +61,7 @@ function SignUp() {
                     />
                 </label>
                 <button type="submit">회원가입 완료</button>
-                <button>로그인</button>
+                <button onClick={onClickLoginBtn}>로그인</button>
             </form>        
         </div>
     );
