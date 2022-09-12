@@ -4,14 +4,14 @@ import "./TodoCreate.scss";
 
 function TodoCreate({ onCreate }) {
   const [open, setOpen] = useState(false);
-  const [text, setText] = useState("");
+  const [content, setContent] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (text.trim()) {
-      onCreate(text);
+    if (content.trim()) {
+      onCreate(content);
     }
-    setText("");
+    setContent("");
     setOpen(false);
   };
 
@@ -23,8 +23,8 @@ function TodoCreate({ onCreate }) {
             <input
               autoFocus
               placeholder="할 일을 입력 후, Enter를 누르세요"
-              onChange={(e) => setText(e.target.value)}
-              value={text}
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
             />
           </form>
         </div>
