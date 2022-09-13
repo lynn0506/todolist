@@ -25,6 +25,7 @@ function Login({onClickSignUpBtn}) {
             <form className="login-form" >
                 <input
                     required
+                    autoComplete="username"
                     autoFocus
                     type="text"
                     id="username"
@@ -35,7 +36,7 @@ function Login({onClickSignUpBtn}) {
                 />
                 <input
                     required
-                    autoComplete="password"
+                    autoComplete="current-password"
                     type="password"
                     id="password"
                     name="password"

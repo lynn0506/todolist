@@ -39,6 +39,7 @@ function SignUp({onClickLoginBtn}) {
                     아이디
                     <input
                         required
+                        autoComplete="username"
                         autoFocus
                         type="text"
                         id="username"
@@ -52,7 +53,7 @@ function SignUp({onClickLoginBtn}) {
                     비밀번호
                     <input
                         required
-                        autoComplete="password"
+                        autoComplete="current-password"
                         type="password"
                         id="password"
                         name="password"
@@ -65,7 +66,7 @@ function SignUp({onClickLoginBtn}) {
                     비밀번호 확인
                     <input
                         required
-                        autoComplete="passwordCheck"
+                        autoComplete="new-password"
                         type="password"
                         id="passwordCheck"
                         name="passwordCheck"
