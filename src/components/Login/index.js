@@ -24,6 +24,7 @@ function Login({onClickSignUpBtn}) {
             </div>
             <form className="login-form" >
                 <input
+                    required
                     autoFocus
                     type="text"
                     id="username"
@@ -33,6 +34,7 @@ function Login({onClickSignUpBtn}) {
                     placeholder="아이디"
                 />
                 <input
+                    required
                     autoComplete="password"
                     type="password"
                     id="password"

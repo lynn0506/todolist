@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { isValidUserName, isValidPassword } from '../../utils/auth';
 
 import './SignUp.scss';
 
@@ -11,11 +12,21 @@ function SignUp({onClickLoginBtn}) {
 
     const onChangeFormData = (e) => {
         e.preventDefault();
-    
+
         setFormData({
             ...formData,
             [e.target.name]: e.target.value.trim(),
         });
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const {username, password, passwordCheck} = formData;
+
+        if (isValidUserName(username) && isValidPassword(password, passwordCheck)) {
+            console.log('valid form');
+        }
     };
 
     return (
@@ -23,10 +34,11 @@ function SignUp({onClickLoginBtn}) {
             <div className="head-container">
                 <h1>회원가입</h1>
             </div>
-            <form className="sign-up-form">
+            <form className="sign-up-form" onSubmit={onSubmit}>
                 <label>
                     아이디
                     <input
+                        required
                         autoFocus
                         type="text"
                         id="username"
@@ -39,6 +51,7 @@ function SignUp({onClickLoginBtn}) {
                 <label>
                     비밀번호
                     <input
+                        required
                         autoComplete="password"
                         type="password"
                         id="password"
@@ -51,6 +64,7 @@ function SignUp({onClickLoginBtn}) {
                 <label>
                     비밀번호 확인
                     <input
+                        required
                         autoComplete="passwordCheck"
                         type="password"
                         id="passwordCheck"
@@ -62,7 +76,7 @@ function SignUp({onClickLoginBtn}) {
                 </label>
                 <button type="submit">회원가입 완료</button>
                 <button onClick={onClickLoginBtn}>로그인</button>
-            </form>        
+            </form>     
         </div>
     );
 }
