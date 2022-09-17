@@ -4,22 +4,22 @@ import { MdDone, MdDelete, MdEdit } from "react-icons/md";
 import "./TodoItem.scss";
 
 function TodoItem({ todo, onToggle, onUpdate, onRemove }) {
-    const { id, content, done } = todo;
-    //todo content 수정 위한 editIcon 추가되면서 isRemoveIconVisible의 변수명을 아래와 같이 바꿈
+    const { id, text, done } = todo;
+    //todo text 수정 위한 editIcon 추가되면서 isRemoveIconVisible의 변수명을 아래와 같이 바꿈
     const [isIconVisible, setIsIconVisible] = useState(false);
 
     //edit icon 클릭시 div -> input으로 변경
     const [isTodoEditable, setIsTodoEditable] = useState(false);
-    //todo content
-    const [todoContent, setTodoContent] = useState(content);
+    //todo text
+    const [todoText, setTodoText] = useState(text);
 
     // input change 및 submit
-    const onChangeContent = (e) => {
-        setTodoContent(e.target.value);
+    const onChangeText = (e) => {
+        setTodoText(e.target.value);
     };
-    const onSubmitContentUpdatedTodo = (e) => {
+    const onSubmitTextUpdatedTodo = (e) => {
         e.preventDefault();
-        onUpdate(id, todoContent);
+        onUpdate(id, todoText);
         setIsTodoEditable(false);
     };
 
@@ -35,13 +35,13 @@ function TodoItem({ todo, onToggle, onUpdate, onRemove }) {
             >
                 {done && <MdDone />}
             </div>
-            <div className={done ? "content content-done" : "content"}>
+            <div className={done ? "text text-done" : "text"}>
                 {isTodoEditable ? (
-                    <form onSubmit={onSubmitContentUpdatedTodo}>
-                        <input value={todoContent} onChange={onChangeContent} />
+                    <form onSubmit={onSubmitTextUpdatedTodo}>
+                        <input value={todoText} onChange={onChangeText} />
                     </form>
                 ) : (
-                    content
+                    text
                 )}
             </div>
             <div

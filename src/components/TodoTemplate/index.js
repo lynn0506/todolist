@@ -33,12 +33,12 @@ function TodoTemplate() {
     };
 
     //todo update(2주차 심화과제)
-    const onUpdate = (id, content) => {
+    const onUpdate = (id, text) => {
         axios
-            .patch(`/api/todos/${id}/`, {content})
+            .patch(`/api/todos/${id}/`, {text})
             .then(() => {
                 const newTodos = todos.map((todo) =>
-                    todo.id === id ? { ...todo, content: content } : todo
+                    todo.id === id ? { ...todo, text: text } : todo
                 );
                 setTodos(newTodos);
             })
@@ -57,8 +57,8 @@ function TodoTemplate() {
     };
 
     //todo post
-    const onCreate = (content) => {
-        const newTodo = { content };
+    const onCreate = (text) => {
+        const newTodo = { text };
         axios
             .post("/api/todos/create/", newTodo)
             .then((res) => {
