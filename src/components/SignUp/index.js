@@ -3,7 +3,7 @@ import { isValidUserName, isValidPassword } from '../../utils/auth';
 
 import './SignUp.scss';
 
-function SignUp({onClickLoginBtn}) {
+function SignUp({ onClickLoginBtn }) {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -22,7 +22,7 @@ function SignUp({onClickLoginBtn}) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const {username, password, passwordCheck} = formData;
+        const { username, password, passwordCheck } = formData;
 
         if (isValidUserName(username) && isValidPassword(password, passwordCheck)) {
             console.log('valid form');
@@ -46,7 +46,7 @@ function SignUp({onClickLoginBtn}) {
                         name="username"
                         value={formData.username}
                         onChange={onChangeFormData}
-                        placeholder="아이디"  
+                        placeholder="아이디"
                     />
                 </label>
                 <label>
@@ -77,7 +77,7 @@ function SignUp({onClickLoginBtn}) {
                 </label>
                 <button type="submit">회원가입 완료</button>
                 <button onClick={onClickLoginBtn}>로그인</button>
-            </form>     
+            </form>
         </div>
     );
 }

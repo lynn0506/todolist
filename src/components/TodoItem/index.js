@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 //editIcon 추가
-import { MdDone, MdDelete, MdEdit } from "react-icons/md";
-import "./TodoItem.scss";
+import { MdDone, MdDelete, MdEdit } from 'react-icons/md';
+import './TodoItem.scss';
 
 function TodoItem({ todo, onToggle, onUpdate, onRemove }) {
     const { id, text, done } = todo;
@@ -24,18 +24,11 @@ function TodoItem({ todo, onToggle, onUpdate, onRemove }) {
     };
 
     return (
-        <div
-            className="item-block"
-            onMouseEnter={() => setIsIconVisible(true)}
-            onMouseLeave={() => setIsIconVisible(false)}
-        >
-            <div
-                className={done ? "check-circle circle-done" : "check-circle"}
-                onClick={() => onToggle(id)}
-            >
+        <div className="item-block" onMouseEnter={() => setIsIconVisible(true)} onMouseLeave={() => setIsIconVisible(false)}>
+            <div className={done ? 'check-circle circle-done' : 'check-circle'} onClick={() => onToggle(id)}>
                 {done && <MdDone />}
             </div>
-            <div className={done ? "text text-done" : "text"}>
+            <div className={done ? 'text text-done' : 'text'}>
                 {isTodoEditable ? (
                     <form onSubmit={onSubmitTextUpdatedTodo}>
                         <input value={todoText} onChange={onChangeText} />
@@ -44,18 +37,10 @@ function TodoItem({ todo, onToggle, onUpdate, onRemove }) {
                     text
                 )}
             </div>
-            <div
-                className="edit-icon"
-                style={{ display: isIconVisible ? "initial" : "none" }}
-                onClick={() => setIsTodoEditable(true)}
-            >
+            <div className="edit-icon" style={{ display: isIconVisible ? 'initial' : 'none' }} onClick={() => setIsTodoEditable(true)}>
                 <MdEdit />
             </div>
-            <div
-                className="remove-icon"
-                style={{ display: isIconVisible ? "initial" : "none" }}
-                onClick={() => onRemove(id)}
-            >
+            <div className="remove-icon" style={{ display: isIconVisible ? 'initial' : 'none' }} onClick={() => onRemove(id)}>
                 <MdDelete />
             </div>
         </div>

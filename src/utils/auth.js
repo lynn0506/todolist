@@ -5,14 +5,13 @@ export const isValidUserName = (username) => {
     }
 
     const regex = /^[a-z0-9]+$/i;
-    if(!regex.test(username))  {
+    if (!regex.test(username)) {
         alert('아이디는 영문과 숫자로만 입력해 주세요');
         return false;
     }
 
     return true;
 };
-
 
 export const isValidPassword = (password, passwordCheck) => {
     if (password !== passwordCheck) {

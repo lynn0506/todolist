@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { MdAdd } from "react-icons/md";
+import React, { useState } from 'react';
+import { MdAdd } from 'react-icons/md';
 
-import "./TodoCreate.scss";
+import './TodoCreate.scss';
 
 function TodoCreate({ onCreate }) {
     const [open, setOpen] = useState(false);
-    const [text, setText] = useState("");
+    const [text, setText] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
         if (text.trim()) {
             onCreate(text);
         }
-        setText("");
+        setText('');
         setOpen(false);
     };
 
@@ -30,10 +30,7 @@ function TodoCreate({ onCreate }) {
                     </form>
                 </div>
             )}
-            <button
-                className={open ? "circle-button button-open" : "circle-button"}
-                onClick={() => setOpen(!open)}
-            >
+            <button className={open ? 'circle-button button-open' : 'circle-button'} onClick={() => setOpen(!open)}>
                 <MdAdd />
             </button>
         </>

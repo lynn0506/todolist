@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './Login.scss';
 
-function Login({onClickSignUpBtn}) {
+function Login({ onClickSignUpBtn }) {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -22,7 +22,7 @@ function Login({onClickSignUpBtn}) {
             <div className="head-container">
                 <h1>로그인</h1>
             </div>
-            <form className="login-form" >
+            <form className="login-form">
                 <input
                     required
                     autoComplete="username"
