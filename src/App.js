@@ -6,8 +6,10 @@ import AuthTemplate from './components/AuthTemplate';
 import './App.scss';
 
 function App() {
+    if (window.sessionStorage.getItem('isLoggedIn')) {
+        return <TodoTemplate />;
+    }
     return <AuthTemplate />;
-    // return <TodoTemplate />;
 }
 
 export default App;

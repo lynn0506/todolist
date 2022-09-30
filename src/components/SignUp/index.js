@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import { isValidUserName, isValidPassword } from '../../utils/auth';
+import { signUp } from '../../api/auth';
 
 import './SignUp.scss';
 
@@ -25,7 +27,7 @@ function SignUp({ onClickLoginBtn }) {
         const { username, password, passwordCheck } = formData;
 
         if (isValidUserName(username) && isValidPassword(password, passwordCheck)) {
-            console.log('valid form');
+            signUp({ username, password });
         }
     };
 

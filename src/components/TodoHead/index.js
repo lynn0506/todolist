@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { logout } from '../../api/auth';
 import './TodoHead.scss';
 
 function TodoHead({ todos }) {
@@ -18,7 +19,7 @@ function TodoHead({ todos }) {
             <div className="day">{dayName}</div>
             <div className="info-bar">
                 <div className="todos-left">할 일 {undoneTodos.length}개 남음</div>
-                <button>로그아웃</button>
+                <button onClick={logout}>로그아웃</button>
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { login } from '../../api/auth';
 import './Login.scss';
 
 function Login({ onClickSignUpBtn }) {
@@ -17,12 +18,17 @@ function Login({ onClickSignUpBtn }) {
         });
     };
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        login(formData);
+    };
+
     return (
         <div className="template-container">
             <div className="head-container">
                 <h1>로그인</h1>
             </div>
-            <form className="login-form">
+            <form className="login-form" onSubmit={onSubmit}>
                 <input
                     required
                     autoComplete="username"
