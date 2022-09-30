@@ -19,8 +19,8 @@ export const isValidPassword = (password, passwordCheck) => {
         return false;
     }
 
-    if (password.length < 6) {
-        alert('6자리 이상의 비밀번호를 설정해 주세요');
+    if (password.length < 8) {
+        alert('8자리 이상의 비밀번호를 설정해 주세요');
         return false;
     }
 
