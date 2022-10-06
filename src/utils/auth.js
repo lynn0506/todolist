@@ -26,3 +26,11 @@ export const isValidPassword = (password, passwordCheck) => {
 
     return true;
 };
+
+export const checkLoginStatus = (status) => {
+    if (status === 401) {
+        alert('다시 로그인해 주세요.');
+        sessionStorage.clear();
+        window.location.reload();
+    }
+};

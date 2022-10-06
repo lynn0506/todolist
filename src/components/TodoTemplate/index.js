@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './TodoTemplate.scss';
+import axios from 'axios';
+
 import TodoHead from '../TodoHead';
 import TodoList from '../TodoList';
 import TodoCreate from '../TodoCreate';
-import axios from 'axios';
+import { checkLoginStatus } from '../../utils/auth';
+
+import './TodoTemplate.scss';
 
 function TodoTemplate() {
     //2주차 dummy data 제거
@@ -16,7 +19,10 @@ function TodoTemplate() {
             .then((res) => {
                 setTodos(res.data.todos);
             })
-            .catch((err) => console.log(err));
+            .catch((error) => {
+                console.log(error);
+                checkLoginStatus();
+            });
     }, []);
 
     //todo toggle
@@ -27,7 +33,10 @@ function TodoTemplate() {
                 const newTodos = todos.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo));
                 setTodos(newTodos);
             })
-            .catch((err) => console.log(err));
+            .catch((error) => {
+                console.log(error);
+                checkLoginStatus(error.response.status);
+            });
     };
 
     //todo update(2주차 심화과제)
@@ -38,7 +47,10 @@ function TodoTemplate() {
                 const newTodos = todos.map((todo) => (todo.id === id ? { ...todo, text: text } : todo));
                 setTodos(newTodos);
             })
-            .catch((err) => console.log(err));
+            .catch((error) => {
+                console.log(error);
+                checkLoginStatus(error.response.status);
+            });
     };
 
     //todo delete
@@ -49,7 +61,10 @@ function TodoTemplate() {
                 const newTodos = todos.filter((todo) => todo.id !== id);
                 setTodos(newTodos);
             })
-            .catch((err) => console.log(err));
+            .catch((error) => {
+                console.log(error);
+                checkLoginStatus(error.response.status);
+            });
     };
 
     //todo post
@@ -60,7 +75,10 @@ function TodoTemplate() {
             .then((res) => {
                 setTodos([...todos, res.data.todo]);
             })
-            .catch((err) => console.log(err));
+            .catch((error) => {
+                console.log(error);
+                checkLoginStatus(error.response.status);
+            });
     };
 
     return (
