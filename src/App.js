@@ -1,8 +1,15 @@
-import './App.scss';
+import React from 'react';
+
 import TodoTemplate from './components/TodoTemplate';
+import AuthTemplate from './components/AuthTemplate';
+
+import './App.scss';
 
 function App() {
-  return <TodoTemplate />;
+    if (window.sessionStorage.getItem('isLoggedIn')) {
+        return <TodoTemplate />;
+    }
+    return <AuthTemplate />;
 }
 
 export default App;
