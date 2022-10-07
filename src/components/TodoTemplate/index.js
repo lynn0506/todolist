@@ -4,15 +4,13 @@ import axios from 'axios';
 import TodoHead from '../TodoHead';
 import TodoList from '../TodoList';
 import TodoCreate from '../TodoCreate';
-import { checkLoginStatus } from '../../utils/auth';
+import { checkApiResponseStatus } from '../../utils/auth';
 
 import './TodoTemplate.scss';
 
 function TodoTemplate() {
-    //2주차 dummy data 제거
     const [todos, setTodos] = useState([]);
 
-    //todos get
     useEffect(() => {
         axios
             .get('/api/todos')
@@ -21,11 +19,10 @@ function TodoTemplate() {
             })
             .catch((error) => {
                 console.log(error);
-                checkLoginStatus();
+                checkApiResponseStatus(error.response.status);
             });
     }, []);
 
-    //todo toggle
     const onToggle = (id) => {
         axios
             .patch(`/api/todos/${id}/check/`)
@@ -35,11 +32,10 @@ function TodoTemplate() {
             })
             .catch((error) => {
                 console.log(error);
-                checkLoginStatus(error.response.status);
+                checkApiResponseStatus(error.response.status);
             });
     };
 
-    //todo update(2주차 심화과제)
     const onUpdate = (id, text) => {
         axios
             .patch(`/api/todos/${id}/`, { text })
@@ -49,11 +45,10 @@ function TodoTemplate() {
             })
             .catch((error) => {
                 console.log(error);
-                checkLoginStatus(error.response.status);
+                checkApiResponseStatus(error.response.status);
             });
     };
 
-    //todo delete
     const onRemove = (id) => {
         axios
             .delete(`/api/todos/${id}/`)
@@ -63,11 +58,10 @@ function TodoTemplate() {
             })
             .catch((error) => {
                 console.log(error);
-                checkLoginStatus(error.response.status);
+                checkApiResponseStatus(error.response.status);
             });
     };
 
-    //todo post
     const onCreate = (text) => {
         const newTodo = { text };
         axios
@@ -77,7 +71,7 @@ function TodoTemplate() {
             })
             .catch((error) => {
                 console.log(error);
-                checkLoginStatus(error.response.status);
+                checkApiResponseStatus(error.response.status);
             });
     };
 

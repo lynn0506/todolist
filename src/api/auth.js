@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { checkLoginStatus } from '../utils/auth';
+import { checkApiResponseStatus } from '../utils/auth';
 
 export const signUp = ({ username, password }) => {
     axios
@@ -10,7 +10,6 @@ export const signUp = ({ username, password }) => {
         })
         .catch((error) => {
             console.log(error);
-            checkLoginStatus(error.response.status);
         });
 };
 
@@ -24,7 +23,6 @@ export const login = ({ username, password }) => {
         })
         .catch((error) => {
             console.log(error);
-            checkLoginStatus(error.response.status);
         });
 };
 
@@ -37,6 +35,6 @@ export const logout = () => {
         })
         .catch((error) => {
             console.log(error);
-            checkLoginStatus(error.response.status);
+            checkApiResponseStatus(error.response.status);
         });
 };

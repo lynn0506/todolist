@@ -4,25 +4,21 @@ import Login from '../Login';
 import SignUp from '../SignUp';
 
 const LOGIN_PAGE = 'login';
-const SIGNUP_PAGE = 'signup';
 
 function AuthTemplate() {
     const [pageName, setPageName] = useState(LOGIN_PAGE);
 
-    const routeToLoginPage = (e) => {
+    const routeToClickedPage = (e) => {
         e.preventDefault();
-        setPageName(LOGIN_PAGE);
-    };
 
-    const routeToSignUpPage = (e) => {
-        e.preventDefault();
-        setPageName(SIGNUP_PAGE);
+        const nextPageName = e.target.name;
+        setPageName(nextPageName);
     };
 
     if (pageName === LOGIN_PAGE) {
-        return <Login onClickSignUpBtn={routeToSignUpPage} />;
+        return <Login onClickSignUpBtn={routeToClickedPage} />;
     } else {
-        return <SignUp onClickLoginBtn={routeToLoginPage} />;
+        return <SignUp onClickLoginBtn={routeToClickedPage} />;
     }
 }
 

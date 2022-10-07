@@ -13,11 +13,12 @@ function SignUp({ onClickLoginBtn }) {
     });
 
     const onChangeFormData = (e) => {
-        e.preventDefault();
+        const name = e.target.name;
+        const value = e.target.value;
 
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value.trim(),
+            [name]: value.trim(),
         });
     };
 
@@ -78,7 +79,9 @@ function SignUp({ onClickLoginBtn }) {
                     />
                 </label>
                 <button type="submit">회원가입 완료</button>
-                <button onClick={onClickLoginBtn}>로그인</button>
+                <button name="login" onClick={onClickLoginBtn}>
+                    로그인
+                </button>
             </form>
         </div>
     );

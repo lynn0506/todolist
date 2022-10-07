@@ -10,16 +10,18 @@ function Login({ onClickSignUpBtn }) {
     });
 
     const onChangeFormData = (e) => {
-        e.preventDefault();
+        const name = e.target.name;
+        const value = e.target.value;
 
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value.trim(),
+            [name]: value.trim(),
         });
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
+
         login(formData);
     };
 
@@ -51,7 +53,9 @@ function Login({ onClickSignUpBtn }) {
                     placeholder="비밀번호"
                 />
                 <button type="submit">로그인</button>
-                <button onClick={onClickSignUpBtn}>회원가입</button>
+                <button name="singup" onClick={onClickSignUpBtn}>
+                    회원가입
+                </button>
             </form>
         </div>
     );
